@@ -6,6 +6,7 @@ global class GitHubProvider2 extends DataSource.Provider {
     override global List<DataSource.Capability> getCapabilities() {
         List<DataSource.Capability> capabilities = new List<DataSource.Capability>();
         capabilities.add(DataSource.Capability.ROW_QUERY);
+        capabilities.add(DataSource.Capability.SEARCH);
         return capabilities;
     }
      

@@ -324,6 +324,7 @@
         <type>Flexipage</type>
         <profile>Work.com Only User</profile>
     </profileActionOverrides>
+    <tabs>standard-home</tabs>
     <tabs>GitHub_Repos__x</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>GitHub_UtilityBar</utilityBar>

@@ -2,6 +2,7 @@
   "orgName": "SFDC Github Authenticator",
   "edition": "Developer",
   "features": [],
+  "language": "en_US",
   "settings": {
     "lightningExperienceSettings": {
         "enableS1DesktopEnabled": true

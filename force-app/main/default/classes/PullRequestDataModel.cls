@@ -58,10 +58,10 @@ public class PullRequestDataModel {
         pullRequest.put('Body', pullRequest.get('body'));
 
 
-        pullRequest.put('CreatedDate', DataUtils.transformDate((String)pullRequest.get('created_at')));
-        pullRequest.put('UpdatedDate', DataUtils.transformDate((String)pullRequest.get('updated_at')));
-        pullRequest.put('ClosedDate', DataUtils.transformDate((String)pullRequest.get('closed_at')));
-        pullRequest.put('MergedDate', DataUtils.transformDate((String)pullRequest.get('merged_at')));
+        pullRequest.put('CreatedDate', DataUtils.transformDate(pullRequest.get('created_at')));
+        pullRequest.put('UpdatedDate', DataUtils.transformDate(pullRequest.get('updated_at')));
+        pullRequest.put('ClosedDate', DataUtils.transformDate(pullRequest.get('closed_at')));
+        pullRequest.put('MergedDate', DataUtils.transformDate(pullRequest.get('merged_at')));
 
 
         pullRequest.put('Merged', pullRequest.get('merged'));

@@ -61,9 +61,9 @@ public class RepositoryDataModel {
 
         repo.put('Language', repo.get('language'));
 
-        repo.put('CreatedDate', DataUtils.transformDate((String)repo.get('created_at')));
-        repo.put('UpdatedDate', DataUtils.transformDate((String)repo.get('updated_at')));
-        repo.put('LastPushedDate', DataUtils.transformDate((String)repo.get('pushed_at')));
+        repo.put('CreatedDate', DataUtils.transformDate(repo.get('created_at')));
+        repo.put('UpdatedDate', DataUtils.transformDate(repo.get('updated_at')));
+        repo.put('LastPushedDate', DataUtils.transformDate(repo.get('pushed_at')));
 
         repo.put('Archived', repo.get('archived'));
         repo.put('Disabled', repo.get('disabled'));

@@ -13,6 +13,9 @@ global class SFDC2GitHubConnection extends DataSource.Connection {
       if (queryContext.tableSelection.tableSelected == RepositoryDataModel.TABLE_NAME) {
           return RepositoryDataModel.handleQuery(queryContext);
       }
+      if (queryContext.tableSelection.tableSelected == PullRequestDataModel.TABLE_NAME) {
+        return PullRequestDataModel.handleQuery(queryContext);
+      }
       throw new IllegalArgumentException('Selected table is not supported: ' + queryContext.tableSelection.tableSelected);
   }
   

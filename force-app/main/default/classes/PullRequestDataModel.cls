@@ -18,8 +18,6 @@ public class PullRequestDataModel {
         columns.add(DataSource.Column.text('Owner'));
         columns.add(DataSource.Column.text('OwnerId'));
         
-        
-        //TODO change to date fields
         columns.add(DataSource.Column.text('CreatedDate'));
         columns.add(DataSource.Column.text('UpdatedDate'));
         columns.add(DataSource.Column.text('ClosedDate'));
@@ -60,10 +58,10 @@ public class PullRequestDataModel {
         pullRequest.put('Body', pullRequest.get('body'));
 
 
-        pullRequest.put('CreatedDate', pullRequest.get('created_at'));
-        pullRequest.put('UpdatedDate', pullRequest.get('updated_at'));
-        pullRequest.put('ClosedDate', pullRequest.get('closed_at'));
-        pullRequest.put('MergedDate', pullRequest.get('merged_at'));
+        pullRequest.put('CreatedDate', DataUtils.transformDate(pullRequest.get('created_at')));
+        pullRequest.put('UpdatedDate', DataUtils.transformDate(pullRequest.get('updated_at')));
+        pullRequest.put('ClosedDate', DataUtils.transformDate(pullRequest.get('closed_at')));
+        pullRequest.put('MergedDate', DataUtils.transformDate(pullRequest.get('merged_at')));
 
 
         pullRequest.put('Merged', pullRequest.get('merged'));
@@ -89,7 +87,7 @@ public class PullRequestDataModel {
         Http httpProtocol = new Http();
         HttpRequest request = new HttpRequest();
         //TODO
-        String url = 'https://api.github.com/repos/' + user + '/' + repositoryName + '/pulls';
+        String url = 'https://api.github.com/repos/' + user + '/' + repositoryName + '/pulls?state=all';
         request.setEndpoint(url);
         request.setMethod('GET');
         HttpResponse response = httpProtocol.send(request);

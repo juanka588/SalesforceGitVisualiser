@@ -17,7 +17,6 @@ public class RepositoryDataModel {
 
         columns.add(DataSource.Column.text('Language'));
         
-        //TODO change to date fields
         columns.add(DataSource.Column.text('CreatedDate'));
         columns.add(DataSource.Column.text('UpdatedDate'));
         columns.add(DataSource.Column.text('LastPushedDate'));
@@ -36,9 +35,12 @@ public class RepositoryDataModel {
         return DataSource.Table.get(TABLE_NAME, 'Name', columns);
     }
 
-    private static List<Map<String, Object>> getRepositories(HttpResponse response){
+    private static List<Map<String, Object>> getRepositories(String content){
+        if (content == null || ''.equals(content)) {
+            return new List<Map<String,Object>>();
+        }
         List<Map<String, Object>> repositories = new List<Map<String, Object>>();
-        for (Object item : (List<Object>)JSON.deserializeUntyped(response.getBody())) {
+        for (Object item : (List<Object>)JSON.deserializeUntyped(content)) {
             repositories.add(buildRepositoryFromJson(item));
         }
         return repositories;
@@ -59,10 +61,9 @@ public class RepositoryDataModel {
 
         repo.put('Language', repo.get('language'));
 
-        //TODO make the transformation
-        repo.put('CreatedDate', repo.get('created_at'));
-        repo.put('UpdatedDate', repo.get('updated_at'));
-        repo.put('LastPushedDate', repo.get('pushed_at'));
+        repo.put('CreatedDate', DataUtils.transformDate(repo.get('created_at')));
+        repo.put('UpdatedDate', DataUtils.transformDate(repo.get('updated_at')));
+        repo.put('LastPushedDate', DataUtils.transformDate(repo.get('pushed_at')));
 
         repo.put('Archived', repo.get('archived'));
         repo.put('Disabled', repo.get('disabled'));
@@ -90,8 +91,8 @@ public class RepositoryDataModel {
             // Note: If a 4xx status code occurs when querying the GitHub API, deserializeUntyped()
             // will simply return a Map<Objects> instead of a List<Map<String, Object>>, resulting in
             // a runtime error.
-            List<Map<String, Object>> repositories = getRepositories(response);
-            List<Map<String, Object>> repos = DataSource.QueryUtils.process(queryContext,repositories );
+            List<Map<String, Object>> repositories = getRepositories(response.getBody());
+            List<Map<String, Object>> repos = DataSource.QueryUtils.process(queryContext, repositories);
             DataSource.TableResult tableResult = DataSource.TableResult.get(queryContext, repos);
             
             return tableResult;

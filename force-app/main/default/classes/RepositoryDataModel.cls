@@ -81,10 +81,7 @@ public class RepositoryDataModel {
     public static DataSource.TableResult handleQuery(DataSource.QueryContext queryContext) {
         Http httpProtocol = new Http();
         HttpRequest request = new HttpRequest();
-        // TODO replace url
-        //String url = 'callout:GitHubCredentials/user/repos?per_page=1000';
-        String user = 'juanka588';
-        String url = 'https://api.github.com/users/' + user + '/repos';
+        String url = 'callout:GitHubCredentials/user/repos?per_page=1000';
         request.setEndpoint(url);
         request.setMethod('GET');
         HttpResponse response = httpProtocol.send(request);

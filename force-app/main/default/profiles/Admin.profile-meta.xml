@@ -14,6 +14,18 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>PullRequestDataModel</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PullRequestDataModelTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>RepositoryDataModel</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>SFDC2GitHubConnection</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -22,6 +34,71 @@
         <enabled>false</enabled>
         <externalDataSource>Repo</externalDataSource>
     </externalDataSourceAccesses>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>GitHub_Pull_Requests__x.Body__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>GitHub_Pull_Requests__x.ClosedDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>GitHub_Pull_Requests__x.CreatedDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>GitHub_Pull_Requests__x.Draft__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>GitHub_Pull_Requests__x.MergedDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>GitHub_Pull_Requests__x.Merged__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>GitHub_Pull_Requests__x.Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>GitHub_Pull_Requests__x.OwnerId__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>GitHub_Pull_Requests__x.Owner__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>GitHub_Pull_Requests__x.RepoName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>GitHub_Pull_Requests__x.State__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>GitHub_Pull_Requests__x.Title__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>GitHub_Pull_Requests__x.UpdatedDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>GitHub_Repos__x.Archived__c</field>
@@ -108,8 +185,20 @@
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>
+        <layout>GitHub_Pull_Requests__x-GitHub Pull Requests Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>GitHub_Repos__x-GitHub Repos Layout</layout>
     </layoutAssignments>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>GitHub_Pull_Requests__x</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
@@ -119,6 +208,10 @@
         <object>GitHub_Repos__x</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
+    <tabVisibilities>
+        <tab>GitHub_Pull_Requests__x</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
     <tabVisibilities>
         <tab>GitHub_Repos__x</tab>
         <visibility>DefaultOn</visibility>
